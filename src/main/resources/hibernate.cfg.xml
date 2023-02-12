@@ -27,7 +27,11 @@
                 DİKKAT!! kafanıza göre her sınıfı haritalayamazsınız. çünkü hibernate
                 @Entity ile işaretlenmemiş hiç bir sınıfı kullanamaz.
         -->
-        <mapping class="com.berk.repository.entity.Musteri"></mapping>
+        <mapping class="com.berk.repository.entity.Comment"></mapping>
+        <mapping class="com.berk.repository.entity.Follow"></mapping>
+        <mapping class="com.berk.repository.entity.LikeList"></mapping>
+        <mapping class="com.berk.repository.entity.Tweet"></mapping>
+        <mapping class="com.berk.repository.entity.UserProfile"></mapping>
 
 
     </session-factory>

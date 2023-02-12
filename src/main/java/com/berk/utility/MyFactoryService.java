@@ -1,15 +1,14 @@
 package com.berk.utility;
 
+import lombok.Getter;
+
 import java.util.List;
 import java.util.Optional;
-
-public class MyFactoryService<R extends MyFactoryRepository,T,ID> implements IService<T,ID>{
-
-
+@Getter
+public class MyFactoryService<R extends MyFactoryRepository,T,ID> implements IService<T,ID> {
     R repository;
-
-    public MyFactoryService(R r) {
-        this.repository=repository;
+    public MyFactoryService(R repository){
+        this.repository = repository;
     }
 
     @Override
@@ -19,11 +18,21 @@ public class MyFactoryService<R extends MyFactoryRepository,T,ID> implements ISe
     }
 
     @Override
-    public <S extends T> Iterable<S> saveAll(Iterable<S> entities) {
-        repository.saveAll(entities);
-        return entities;
+    public <S extends T> Iterable<S> saveAll(Iterable<S> entites) {
+       repository.saveAll(entites);
+       return entites;
+    }
+    @Override
+    public <S extends T> S update(S entity) {
+        repository.update(entity);
+        return entity;
     }
 
+    @Override
+    public <S extends T> Iterable<S> updateAll(Iterable<S> entites) {
+        repository.updateAll(entites);
+        return entites;
+    }
     @Override
     public void delete(T entity) {
         repository.delete(entity);
@@ -40,8 +49,8 @@ public class MyFactoryService<R extends MyFactoryRepository,T,ID> implements ISe
     }
 
     @Override
-    public boolean existsById(ID id) {
-        return repository.existsById(id);
+    public boolean existById(ID id) {
+        return repository.existById(id);
     }
 
     @Override
